@@ -1,0 +1,25 @@
+.recipe {
+  border-radius: 10px;
+  box-shadow: 0px 5px 20px #717171;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+}
+
+.title {
+  text-align: center;
+  color: #333;
+}
+
+.list {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.image {
+  border-radius: 30px;
+  height: 250px;
+}
