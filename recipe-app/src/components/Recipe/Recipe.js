@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from './Recipe.module.css'
 
+const Recipe = ({ title, image, ingredients, button }) => {
 
-const Recipe = ({ title, calories, image, ingredients }) => {
   return (
     <div className={style.recipe}>
       <h1 className={style.title}>{title}</h1>
@@ -11,8 +11,8 @@ const Recipe = ({ title, calories, image, ingredients }) => {
           <li key={ingredients.foodId}>{ingredient.text}</li>
         ))}
       </div>
-      <p>{calories.toFixed(0)} Kcal</p>
       <img className={style.image} src={image} alt="" />
+      <button className={style.infoButton} onClick={button}>Info</button>
     </div>
   );
 };
