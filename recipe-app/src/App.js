@@ -13,7 +13,6 @@ const App = () => {
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState('burger');
-  const [displayInfo, setDisplayInfo] = useState(false);
 
   useEffect(() => {
     getRecipes();
@@ -38,55 +37,28 @@ const App = () => {
     setSearch('');
   }
 
-  const changeInfo = () => {
-    setDisplayInfo(!displayInfo);
-  }
 
   return (
 
     <div className="App">
-      {!displayInfo &&
-        <div className="margin">
-          <form onSubmit={getSearch} className="search-form">
-            <input className="search-bar" type="text" value={search} onChange={updateSearch} />
-            <button className="search-button" type="submit">Search</button>
-          </form>
+      <div className="margin">
+        <form onSubmit={getSearch} className="search-form">
+          <input className="search-bar" type="text" value={search} onChange={updateSearch} />
+          <button className="search-button" type="submit">Search</button>
+        </form>
+        <div>
           <div>
-            <div>
-              {recipes.map((recipe) => (
-                <Recipe
-                  key={recipe.recipe.url}
-                  title={recipe.recipe.label}
-                  image={recipe.recipe.image}
-                  ingredients={recipe.recipe.ingredients}
-                  button={changeInfo}
-                />
-              ))}
-            </div>
+            {recipes.map((recipe) => (
+              <Recipe
+                key={recipe.recipe.url}
+                title={recipe.recipe.label}
+                image={recipe.recipe.image}
+                ingredients={recipe.recipe.ingredients}
+              />
+            ))}
           </div>
         </div>
-      }
-      {displayInfo &&
-        <div className="margin">
-          <form onSubmit={getSearch} className="search-form">
-            <input className="search-bar" type="text" value={search} onChange={updateSearch} />
-            <button className="search-button" type="submit">Search</button>
-          </form>
-          <div>
-            <div>
-              {recipes.map((recipe) => (
-                <RecipeInfo
-                  title={recipe.recipe.label}
-                  button={changeInfo}
-                  calories={recipe.recipe.calories}
-                  totalDaily={recipe.recipe.totalDaily}
-                >
-                </RecipeInfo>
-              ))}
-            </div>
-          </div>
-        </div>
-      }
+      </div>
     </div>
   );
 };
