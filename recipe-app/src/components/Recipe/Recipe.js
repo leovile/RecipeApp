@@ -12,7 +12,6 @@ const Recipe = ({ title, image, ingredients, button }) => {
         ))}
       </div>
       <img className={style.image} src={image} alt="" />
-      <button className={style.infoButton} onClick={button}>Info</button>
     </div>
   );
 };
